@@ -1,0 +1,15 @@
+{
+  "MiniMap": false,
+  "SmoothCursor": true,
+  "SmoothScrolling": true,
+  "EditorFolding": true,
+  "FontLigatures": false,
+  "Wordwrap": true,
+  "AlwaysOnTop": false,
+  "AutoAttach": false,
+  "RakNet": false,
+  "Console": true,
+  "RedirectOutput": true,
+  "RedirectErrors": true,
+  "ClearOnTp": true
+}

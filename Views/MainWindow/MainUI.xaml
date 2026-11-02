@@ -1,0 +1,107 @@
+<Window x:Class="Potassium_UI_V2.Views.MainWindow.MainUI" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:local="clr-namespace:Potassium_UI_V2.Views.MainWindow" xmlns:settings="clr-namespace:Potassium_UI_V2.Views.Settings" xmlns:scripthub="clr-namespace:Potassium_UI_V2.Views.ScriptHub" xmlns:theme="clr-namespace:Potassium_UI_V2.Views.Theme" xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf" xmlns:ws="https://schemas.elecho.dev/wpfsuite" xmlns:sys="clr-namespace:System;assembly=netstandard" Title="Potassium" Height="750" Width="880" MinHeight="300" MinWidth="733" WindowStartupLocation="CenterScreen" Loaded="h3k5k17gv" Closing="OFTQ2EaNX">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="1" CornerRadius="0" CaptionHeight="0" ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
+    <Grid Name="mainGrid" Background="{DynamicResource Theme_WindowBackground}" SnapsToDevicePixels="True">
+        <Image Name="backgroundImage" Stretch="UniformToFill" Opacity="0.15" Panel.ZIndex="0" Visibility="Collapsed" IsHitTestVisible="False" />
+        <DockPanel Name="titleBar" Panel.ZIndex="90" VerticalAlignment="Top" Height="43" LastChildFill="False" Background="{DynamicResource Theme_TitleBarBackground}" MouseDown="emIW6jZNaP">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <emoji:TextBlock Name="titleText" FontFamily="{StaticResource WorkSans}" Text="Potassium" FontSize="15" Foreground="{DynamicResource Theme_TitleText}" VerticalAlignment="Center" Cursor="Hand" Margin="10,0,0,0" MouseDown="AaZW1QTKQT" />
+            </StackPanel>
+            <Button Name="btn_close" Style="{StaticResource ControlButtonStyle}" Content="&#xE8BB;" FontFamily="Segoe MDL2 Assets" Margin="0,0,0,0" Foreground="{DynamicResource Theme_ControlButtonForeground}" Width="46" DockPanel.Dock="Right" BorderThickness="0" Click="ERQDjO7GvY" />
+            <Button Name="btn_maximize" Style="{StaticResource MaximizeButtonStyle}" Margin="0,0,0,0" Foreground="{DynamicResource Theme_ControlButtonForeground}" Width="46" DockPanel.Dock="Right" BorderThickness="0" Click="ik9D67ioEV" />
+            <Button Name="btn_minimize" Style="{StaticResource ControlButtonStyle}" Content="&#xE921;" FontFamily="Segoe MDL2 Assets" Margin="0,0,0,0" Foreground="{DynamicResource Theme_ControlButtonForeground}" Width="46" DockPanel.Dock="Right" BorderThickness="0" Click="EK4DrkRv1i" />
+        </DockPanel>
+        <DockPanel Name="iconBar" Panel.ZIndex="90" VerticalAlignment="Top" HorizontalAlignment="Center" Height="43" LastChildFill="False" Margin="0,1,0,0" Background="{DynamicResource Theme_TitleBarBackground}">
+            <ToggleButton Name="BracketButton" Style="{StaticResource IconButtonStyle}" Margin="0,0,0,1" ClickMode="Press" Click="Gh3Ww942jO">
+                <Viewbox Width="16" Height="16">
+                    <iconPacks:PackIconMaterial Kind="CodeTags" Foreground="{Binding Foreground , RelativeSource={RelativeSource AncestorType=ToggleButton}}" />
+                </Viewbox>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource IconButtonStyle}" Margin="0,0,0,1" ClickMode="Press" Click="WE8WATRkRw">
+                <Viewbox Width="18" Height="18">
+                    <iconPacks:PackIconFontAwesome Kind="GearSolid" Foreground="{Binding Foreground , RelativeSource={RelativeSource AncestorType=ToggleButton}}" />
+                </Viewbox>
+            </ToggleButton>
+            <ToggleButton Style="{StaticResource IconButtonStyle}" Margin="0,0,0,1" ClickMode="Press" Click="q9ZWaRTSlL">
+                <Viewbox Width="18" Height="18">
+                    <iconPacks:PackIconMaterial Kind="Earth" Foreground="{Binding Foreground , RelativeSource={RelativeSource AncestorType=ToggleButton}}" />
+                </Viewbox>
+            </ToggleButton>
+            <ToggleButton Name="ThemeButton" Style="{StaticResource IconButtonStyle}" Margin="-4,0,0,1" ClickMode="Press" Click="GBMWxywlBu">
+                <Viewbox Width="18" Height="18">
+                    <iconPacks:PackIconMaterial Kind="Brush" Foreground="{Binding Foreground , RelativeSource={RelativeSource AncestorType=ToggleButton}}" />
+                </Viewbox>
+            </ToggleButton>
+        </DockPanel>
+        <Grid Name="codePage" Visibility="Visible" Panel.ZIndex="6" Background="{DynamicResource Theme_PageBackground}">
+            <local:TabsControl x:Name="tabsControl" Margin="0,43,225,242" />
+            <DockPanel Name="explControls" Panel.ZIndex="5" VerticalAlignment="Bottom" Height="47" LastChildFill="False" Margin="0,0,225,195" Background="{DynamicResource Theme_TitleBarBackground}">
+                <Border Background="{DynamicResource Theme_SeparatorColor}" Height="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="0,0,0,0" />
+                <Button Name="ExecuteButton" Style="{DynamicResource ButtonStyle2}" Content="Execute" Tag="PlayCircle" Height="36" Width="97" Margin="5,0,0,0" ClickMode="Press" Click="OgEWS5Dxjm" />
+                <Button Style="{DynamicResource ButtonStyle2}" Content="Clear" Tag="Eraser" Height="36" Width="97" Margin="4,0,0,0" Click="KN5WvZM4gf" />
+                <Button Style="{DynamicResource ButtonStyle2}" Content="Open" Tag="ContentCopy" Height="36" Width="97" Margin="4,0,0,0" ClickMode="Press" Click="H9vW0uHJai" />
+                <Button Style="{DynamicResource ButtonStyle2}" Content="Save" Tag="ContentSave" Height="36" Width="97" Margin="4,0,0,0" ClickMode="Press" Click="euaWNcdY9I" />
+                <Button Name="ButtonAttach" Style="{DynamicResource ButtonStyle3}" Content="Attach" Tag="Pin" Height="36" Width="97" ClickMode="Press" DockPanel.Dock="Right" Margin="0,0,3,0" Click="vfsWywqS99" />
+            </DockPanel>
+            <Grid Name="consoleArea" Margin="0,0,225,0" Height="195" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="{DynamicResource Theme_ConsoleBackground}" ClipToBounds="True">
+                <Border Background="{DynamicResource Theme_SeparatorColor}" Height="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="0,0,0,0" />
+                <Border Style="{StaticResource IconTextBorderStyle}" CornerRadius="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,8,0,0">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Viewbox Width="24" Height="20">
+                            <iconPacks:PackIconMaterial Kind="ConsoleLine" Foreground="#dbdbdb" Width="14" />
+                        </Viewbox>
+                        <TextBlock Text="Output" Foreground="#dbdbdb" Margin="8,0,0,0" VerticalAlignment="Center" FontSize="16" />
+                    </StackPanel>
+                </Border>
+                <ListBox Name="consoleStack" Margin="10,54,0,4" BorderThickness="0" Background="Transparent" Focusable="False" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" VirtualizingStackPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Recycling" VirtualizingStackPanel.ScrollUnit="Pixel">
+                    <ListBox.Resources>
+                        <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">8</sys:Double>
+                        <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource ModernScrollBar}" />
+                    </ListBox.Resources>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="{x:Type ListBoxItem}">
+                            <Setter Property="Padding" Value="0,0,0,0" />
+                            <Setter Property="Margin" Value="0" />
+                            <Setter Property="Focusable" Value="False" />
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderThickness" Value="0" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                        <ContentPresenter HorizontalAlignment="Stretch" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <emoji:TextBlock TextWrapping="Wrap" FontSize="16" FontFamily="Consolas" LineHeight="24" LineStackingStrategy="BlockLineHeight" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Thumb Name="consoleResizer" Height="6" VerticalAlignment="Top" HorizontalAlignment="Stretch" Cursor="SizeNS" Panel.ZIndex="100" DragDelta="UIkWIRv0NQ" DragCompleted="kgQWtKBjmK">
+                    <Thumb.Template>
+                        <ControlTemplate TargetType="{x:Type Thumb}">
+                            <Border Background="Transparent" />
+                        </ControlTemplate>
+                    </Thumb.Template>
+                </Thumb>
+            </Grid>
+            <Grid Name="scriptsArea" Margin="0,50,0,0" HorizontalAlignment="Right" Width="225">
+                <local:ScriptsFolder x:Name="scriptsFolder" Margin="0,0,0,0" />
+            </Grid>
+        </Grid>
+        <Grid Name="settingsPage" Visibility="Collapsed" Panel.ZIndex="6" VerticalAlignment="Stretch" SnapsToDevicePixels="True" Margin="0,0,0,0" Background="{DynamicResource Theme_PageBackground}">
+            <settings:Settings x:Name="localSettings" />
+        </Grid>
+        <Grid Name="scripthubPage" Visibility="Collapsed" Panel.ZIndex="6" Background="{DynamicResource Theme_PageBackground}">
+            <scripthub:ScriptHub x:Name="localScriptHub" />
+        </Grid>
+        <Grid Name="themePage" Visibility="Collapsed" Panel.ZIndex="6" Background="{DynamicResource Theme_PageBackground}">
+            <theme:Theme x:Name="localTheme" />
+        </Grid>
+    </Grid>
+</Window>

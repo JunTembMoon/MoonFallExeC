@@ -1,0 +1,35 @@
+<UserControl x:Class="Potassium_UI_V2.Views.MainWindow.ScriptsFolder" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:local="clr-namespace:Potassium_UI_V2.Views.MainWindow" xmlns:sys="clr-namespace:System;assembly=netstandard" xmlns:ws="https://schemas.elecho.dev/wpfsuite" Loaded="NycWKQvxh1">
+    <Grid>
+        <Border Background="{DynamicResource Theme_ScriptsFolderBackground}" Margin="0,39,0,0" />
+        <Border Name="scriptsBorder" CornerRadius="6" Cursor="No" Background="{DynamicResource Theme_SearchBackground}" VerticalAlignment="Top" Height="34" Margin="4,0,6,0">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0" RenderingBias="Quality" Direction="0" BlurRadius="20" Color="Black" Opacity="0.2" />
+            </Border.Effect>
+            <Grid Name="scriptsHeader" Width="Auto" Height="34" VerticalAlignment="Top">
+                <Viewbox Width="14" Height="14" HorizontalAlignment="Left" Margin="8,0,0,0">
+                    <iconPacks:PackIconFontAwesome Kind="MagnifyingGlassSolid" Foreground="{DynamicResource Theme_SearchIcon}" />
+                </Viewbox>
+                <TextBox Name="searchBox" Background="Transparent" BorderThickness="0" Foreground="{DynamicResource Theme_SearchText}" CaretBrush="White" Margin="30,0,8,0" VerticalContentAlignment="Center" FontSize="13" FontFamily="{StaticResource WorkSans}" Padding="0,1,0,0" Cursor="IBeam" TextChanged="NxDWuYAoc5" />
+            </Grid>
+        </Border>
+        <ScrollViewer Name="scriptsScrollViewer" VerticalScrollBarVisibility="Auto" Margin="0,39,0,40" Background="Transparent">
+            <ScrollViewer.Resources>
+                <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</sys:Double>
+                <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource ModernScrollBar}" />
+            </ScrollViewer.Resources>
+            <DockPanel Margin="0,0,0,7">
+                <Grid Margin="0,0,-6,-6" Background="#00000000">
+                    <Border CornerRadius="6" Background="{DynamicResource Theme_ScriptsFolderBackground}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                    <StackPanel Name="scriptsContainer" Background="Transparent" />
+                </Grid>
+            </DockPanel>
+        </ScrollViewer>
+        <Border Name="scriptsSeparator" DockPanel.Dock="Left" Background="{DynamicResource Theme_ScriptsFolderSeparator}" Width="2" Margin="0,39,0,0" Height="Auto" HorizontalAlignment="Left" />
+        <Grid VerticalAlignment="Bottom" Height="36" Margin="6,0,5,5">
+            <ComboBox Name="pidComboBox" Style="{DynamicResource ComboBoxStyle}" Height="36" Padding="28,0,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+            <Viewbox Width="14" Height="14" HorizontalAlignment="Left" Margin="8,0,0,0" VerticalAlignment="Center" IsHitTestVisible="False">
+                <iconPacks:PackIconFontAwesome Kind="UserSolid" Foreground="{DynamicResource Theme_IconTextForeground}" />
+            </Viewbox>
+        </Grid>
+    </Grid>
+</UserControl>

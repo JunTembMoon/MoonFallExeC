@@ -1,0 +1,57 @@
+<Window x:Class="Potassium_UI_V2.Views.Login.Login" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Potassium_UI_V2.Views.Login" Title="Login" Height="553" Width="880" WindowStartupLocation="CenterScreen" Loaded="G5ZD4ZN9ls">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="1" CornerRadius="0" CaptionHeight="0" ResizeBorderThickness="2" />
+    </WindowChrome.WindowChrome>
+    <Grid Background="{DynamicResource Theme_WindowBackground}" SnapsToDevicePixels="True">
+        <Grid>
+            <Grid.Effect>
+                <BlurEffect x:Name="overlayBlur" Radius="0" />
+            </Grid.Effect>
+            <DockPanel Name="titleBar" MouseLeftButtonDown="wLTDiP5IbJ" Panel.ZIndex="90" VerticalAlignment="Top" Height="43" LastChildFill="False" Background="{DynamicResource Theme_TitleBarBackground}">
+                <TextBlock Name="titleText" Text="Potassium" FontSize="15" Foreground="{DynamicResource Theme_TitleText}" VerticalAlignment="Center" Cursor="Hand" Margin="10,0,0,0" />
+                <Button Name="btn_close" Click="ERQDjO7GvY" Style="{StaticResource ControlButtonStyle}" Content="&#xE8BB;" FontFamily="Segoe MDL2 Assets" Foreground="{DynamicResource Theme_ControlButtonForeground}" Width="46" DockPanel.Dock="Right" BorderThickness="0" />
+                <Button Name="btn_maximize" Click="ik9D67ioEV" Style="{StaticResource MaximizeButtonStyle}" Foreground="{DynamicResource Theme_ControlButtonForeground}" Width="46" DockPanel.Dock="Right" BorderThickness="0" />
+                <Button Name="btn_minimize" Click="EK4DrkRv1i" Style="{StaticResource ControlButtonStyle}" Content="&#xE921;" FontFamily="Segoe MDL2 Assets" Foreground="{DynamicResource Theme_ControlButtonForeground}" Width="46" DockPanel.Dock="Right" BorderThickness="0" />
+            </DockPanel>
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border Width="360" CornerRadius="10" Background="{DynamicResource Theme_LoginOverlay}" Margin="0">
+                    <Border.Effect>
+                        <BlurEffect Radius="25" />
+                    </Border.Effect>
+                </Border>
+                <Border BorderBrush="{DynamicResource Theme_DialogBorder}" BorderThickness="1.5" CornerRadius="10" Padding="10,20,10,15" Width="360" Background="{DynamicResource Theme_DialogBackground}" SnapsToDevicePixels="True">
+                    <StackPanel>
+                        <StackPanel HorizontalAlignment="Center" Margin="0,0,0,20">
+                            <TextBlock Text="Welcome Back" FontSize="24" FontFamily="{StaticResource WorkSans}" FontWeight="Medium" Foreground="{DynamicResource Theme_PrimaryText}" TextAlignment="Center" TextOptions.TextRenderingMode="ClearType" />
+                            <Rectangle Height="12" />
+                            <TextBlock Text="Sign in to continue to Potassium" FontSize="15" Foreground="{DynamicResource Theme_TitleText}" TextAlignment="Center" />
+                        </StackPanel>
+                        <Rectangle Height="5" />
+                        <TextBox Name="usernameTextBox" Style="{StaticResource UsernameTextBox}" Height="37" Margin="10,0,10,12" />
+                        <Rectangle Height="5" />
+                        <PasswordBox Name="passwordTextBox" KeyDown="wNkDdH7u2J" Style="{StaticResource PasswordTextBox}" Tag="empty" Height="37" Margin="10,0,10,12" />
+                        <Rectangle Height="5" />
+                        <Button Name="loginButton" Click="H5wDkH3bnZ" Style="{DynamicResource ButtonStyle}" Content="Login" Tag="Login" Height="36" Margin="10,0,10,12" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+        <Grid Name="loadingOverlay" Background="{DynamicResource Theme_LoadingOverlay}" Visibility="Collapsed" Panel.ZIndex="100">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="200">
+                <TextBlock Name="statusText" Text="Downloading..." Foreground="{DynamicResource Theme_PrimaryText}" Margin="0,0,0,10" HorizontalAlignment="Center" TextAlignment="Center" FontSize="16" />
+                <ProgressBar Name="downloadProgressBar" Height="14" Minimum="0" Maximum="100" Value="0" Foreground="White">
+                    <ProgressBar.Template>
+                        <ControlTemplate TargetType="{x:Type ProgressBar}">
+                            <Border Background="{DynamicResource Theme_ProgressBarBackground}" CornerRadius="4" SnapsToDevicePixels="true">
+                                <Grid Name="PART_Track">
+                                    <Border Name="PART_Indicator" Background="{TemplateBinding Foreground}" HorizontalAlignment="Left" CornerRadius="4" Width="0" />
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </ProgressBar.Template>
+                </ProgressBar>
+                <TextBlock Name="progressText" Foreground="{DynamicResource Theme_PrimaryText}" Margin="0,7,0,0" HorizontalAlignment="Center" TextAlignment="Center" FontSize="16" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,170 @@
+<UserControl x:Class="Potassium_UI_V2.Views.Settings.Settings" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:Potassium_UI_V2.Views.Settings" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:ws="https://schemas.elecho.dev/wpfsuite" xmlns:sys="clr-namespace:System;assembly=netstandard" UseLayoutRounding="True">
+    <Grid SnapsToDevicePixels="True">
+        <Grid VerticalAlignment="Top" Height="45" Background="{DynamicResource Theme_WindowBackground}" />
+        <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" Margin="5,45,0,0" Background="Transparent">
+            <ScrollViewer.Resources>
+                <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</sys:Double>
+                <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource ModernScrollBar}" />
+            </ScrollViewer.Resources>
+            <StackPanel Margin="0,0,5,0">
+                <Border Style="{StaticResource IconTextBorderStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,8,0,5">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Viewbox Width="24" Height="20">
+                            <iconPacks:PackIconMaterial Kind="Cog" Foreground="White" Width="14" />
+                        </Viewbox>
+                        <TextBlock Text="Settings" Foreground="White" Margin="8,0,0,0" VerticalAlignment="Center" FontSize="18" />
+                    </StackPanel>
+                </Border>
+
+                <Grid Margin="4,8,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="Auto Execute" Foreground="{DynamicResource Theme_PrimaryText}" FontSize="14" />
+                        <TextBlock Text="Automatically execute scripts when injected." Foreground="{DynamicResource Theme_SecondaryText}" FontSize="14" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <CheckBox Name="autoExecToggle" Grid.Column="1" VerticalAlignment="Center" Style="{DynamicResource CheckBoxStyle}" Checked="SettingChanged_Handler" Unchecked="SettingChanged_Handler" />
+                </Grid>
+
+                <Grid Margin="4,10,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="Topmost" Foreground="{DynamicResource Theme_PrimaryText}" FontSize="14" />
+                        <TextBlock Text="Keep the window on top of all other windows." Foreground="{DynamicResource Theme_SecondaryText}" FontSize="14" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <CheckBox Name="topmostToggle" Grid.Column="1" VerticalAlignment="Center" Checked="SettingChanged_Handler" Unchecked="SettingChanged_Handler" />
+                </Grid>
+
+                <Grid Margin="4,10,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="Auto Attach" Foreground="{DynamicResource Theme_PrimaryText}" FontSize="14" />
+                        <TextBlock Text="Automatically attach when Roblox is detected." Foreground="{DynamicResource Theme_SecondaryText}" FontSize="14" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <CheckBox Name="autoAttachToggle" Grid.Column="1" VerticalAlignment="Center" Checked="SettingChanged_Handler" Unchecked="SettingChanged_Handler" />
+                </Grid>
+
+                <Grid Margin="4,10,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="Editor Font Size" Foreground="{DynamicResource Theme_PrimaryText}" FontSize="14" />
+                        <TextBlock Text="Change the font size of the code editor." Foreground="{DynamicResource Theme_SecondaryText}" FontSize="14" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <ComboBox Name="fontSizeComboBox" Grid.Column="1" Style="{DynamicResource ComboBoxStyle}" Width="100" Height="34" VerticalAlignment="Center" SelectionChanged="SettingChanged_Handler">
+                        <ComboBoxItem Content="12" />
+                        <ComboBoxItem Content="14" IsSelected="True" />
+                        <ComboBoxItem Content="16" />
+                        <ComboBoxItem Content="18" />
+                        <ComboBoxItem Content="20" />
+                    </ComboBox>
+                </Grid>
+
+                <Grid Margin="4,10,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="Tab Size" Foreground="{DynamicResource Theme_PrimaryText}" FontSize="14" />
+                        <TextBlock Text="Set the number of spaces per tab." Foreground="{DynamicResource Theme_SecondaryText}" FontSize="14" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <ComboBox Name="tabSizeComboBox" Grid.Column="1" Style="{DynamicResource ComboBoxStyle}" Width="100" Height="34" VerticalAlignment="Center" SelectionChanged="SettingChanged_Handler">
+                        <ComboBoxItem Content="2" />
+                        <ComboBoxItem Content="4" IsSelected="True" />
+                        <ComboBoxItem Content="8" />
+                    </ComboBox>
+                </Grid>
+
+                <Grid Margin="4,10,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="Auto Complete" Foreground="{DynamicResource Theme_PrimaryText}" FontSize="14" />
+                        <TextBlock Text="Enable code auto-completion in the editor." Foreground="{DynamicResource Theme_SecondaryText}" FontSize="14" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <CheckBox Name="autoCompleteToggle" Grid.Column="1" VerticalAlignment="Center" IsChecked="True" Checked="SettingChanged_Handler" Unchecked="SettingChanged_Handler" />
+                </Grid>
+
+                <Grid Margin="4,10,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="Minimize to Tray" Foreground="{DynamicResource Theme_PrimaryText}" FontSize="14" />
+                        <TextBlock Text="Minimize to system tray instead of taskbar." Foreground="{DynamicResource Theme_SecondaryText}" FontSize="14" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <CheckBox Name="minimizeToTrayToggle" Grid.Column="1" VerticalAlignment="Center" Checked="SettingChanged_Handler" Unchecked="SettingChanged_Handler" />
+                </Grid>
+
+                <Grid Margin="4,10,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="Splash Screen" Foreground="{DynamicResource Theme_PrimaryText}" FontSize="14" />
+                        <TextBlock Text="Show splash screen on startup." Foreground="{DynamicResource Theme_SecondaryText}" FontSize="14" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <CheckBox Name="splashToggle" Grid.Column="1" VerticalAlignment="Center" IsChecked="True" Checked="SettingChanged_Handler" Unchecked="SettingChanged_Handler" />
+                </Grid>
+
+                <Grid Margin="4,10,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="HTTP Server" Foreground="{DynamicResource Theme_PrimaryText}" FontSize="14" />
+                        <TextBlock Text="Enable HTTP server for external script execution." Foreground="{DynamicResource Theme_SecondaryText}" FontSize="14" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <CheckBox Name="httpServerToggle" Grid.Column="1" VerticalAlignment="Center" Checked="SettingChanged_Handler" Unchecked="SettingChanged_Handler" />
+                </Grid>
+
+                <Grid Margin="4,10,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="Custom Font" Foreground="{DynamicResource Theme_PrimaryText}" FontSize="14" />
+                        <TextBlock Text="Choose a custom font for the editor." Foreground="{DynamicResource Theme_SecondaryText}" FontSize="14" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <ComboBox Name="fontComboBox" Grid.Column="1" Style="{DynamicResource ComboBoxStyle}" Width="180" Height="34" VerticalAlignment="Center" SelectionChanged="SettingChanged_Handler">
+                        <ComboBoxItem Content="Consolas" IsSelected="True" />
+                        <ComboBoxItem Content="Cascadia Code" />
+                        <ComboBoxItem Content="JetBrains Mono" />
+                        <ComboBoxItem Content="Fira Code" />
+                        <ComboBoxItem Content="Source Code Pro" />
+                    </ComboBox>
+                </Grid>
+
+                <Grid Margin="4,10,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="Root Folder" Foreground="{DynamicResource Theme_PrimaryText}" FontSize="14" />
+                        <TextBlock Text="Open the Potassium data folder." Foreground="{DynamicResource Theme_SecondaryText}" FontSize="14" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <Button Name="openFolderButton" Grid.Column="1" Content="Open Folder" Tag="Folder" Style="{DynamicResource ButtonStyle}" Width="130" Height="34" Click="OpenFolder_Click" />
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
+

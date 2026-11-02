@@ -1,0 +1,46 @@
+<UserControl x:Class="Potassium_UI_V2.Views.Theme.Theme" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:Potassium_UI_V2.Views.Theme" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:ws="https://schemas.elecho.dev/wpfsuite" xmlns:sys="clr-namespace:System;assembly=netstandard" SnapsToDevicePixels="True" UseLayoutRounding="True">
+    <Grid>
+        <Grid VerticalAlignment="Top" Height="45" Background="{DynamicResource Theme_WindowBackground}" />
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5,45,0,0" Background="Transparent">
+            <ScrollViewer.Resources>
+                <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</sys:Double>
+                <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource ModernScrollBar}" />
+            </ScrollViewer.Resources>
+            <StackPanel Margin="0,0,5,0">
+                <Border Style="{StaticResource IconTextBorderStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,8,0,5">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Viewbox Width="24" Height="20">
+                            <iconPacks:PackIconMaterial Kind="Palette" Foreground="White" Width="14" />
+                        </Viewbox>
+                        <TextBlock Text="Themes" Foreground="White" Margin="8,0,0,0" VerticalAlignment="Center" FontSize="18" />
+                    </StackPanel>
+                </Border>
+                <Grid Margin="4,8,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="Select Theme" Foreground="{DynamicResource Theme_PrimaryText}" FontSize="14" />
+                        <TextBlock Text="Choose a theme to apply to the app." Foreground="{DynamicResource Theme_SecondaryText}" FontSize="14" />
+                    </StackPanel>
+                    <ComboBox Name="themeComboBox" Grid.Column="1" Style="{DynamicResource ComboBoxStyle}" Width="220" Height="34" VerticalAlignment="Center" SelectionChanged="mP3ApsP6C" />
+                </Grid>
+                <Grid Margin="4,10,4,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="Theme Folder" Foreground="{DynamicResource Theme_PrimaryText}" FontSize="14" />
+                        <TextBlock Text="Place .json theme files in the bin/themes folder to add custom themes." Foreground="{DynamicResource Theme_SecondaryText}" FontSize="14" TextWrapping="Wrap" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                        <Button Name="openThemesFolderButton" Content="Open Folder" Tag="Folder" Style="{DynamicResource ButtonStyle}" Width="130" Height="34" Margin="0,0,6,0" Click="KNXaUSCfn" />
+                        <Button Name="refreshThemesButton" Content="Refresh" Tag="Refresh" Style="{DynamicResource ButtonStyle}" Width="100" Height="34" Click="MutxveTNa" />
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
